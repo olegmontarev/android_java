@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">Погода</string>
+    <string name="hello_world">Привет, мир</string>
+    <string name="good_morning">Good morning GeekBrains!</string>
+    <string name="good_afternoon">Good afternoon GeekBrains!</string>
+    <string name="good_evening">Good evening GeekBrains!</string>
+    <string name="good_night">Good night GeekBrains!</string>
+</resources>
