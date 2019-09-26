@@ -1,4 +1,4 @@
-package com.geekbrains.a1l1_helloworld;
+package com.geekbrains.a1l2_activity;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.geekbrains.a1l1_helloworld", appContext.getPackageName());
+        assertEquals("com.geekbrains.a1l2_activity", appContext.getPackageName());
     }
 }

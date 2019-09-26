@@ -1,4 +1,4 @@
-package com.geekbrains.a1l1_helloworld;
+package com.geekbrains.a1l2_activity;
 
 import org.junit.Test;
 

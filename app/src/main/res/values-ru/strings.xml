@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="hello_world">Привет, мир!</string>
-    <string name="good_morning">Доброе утро, GeekBrains!</string>
-    <string name="good_afternoon">Добрый день, GeekBrains!</string>
-    <string name="good_evening">Добрый вечер, GeekBrains!</string>
-    <string name="good_night">Доброй ночи, GeekBrains!</string>
-</resources>
