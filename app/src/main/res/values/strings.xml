@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">A1L2_Activity</string>
+    <string name="increase_counter">Increase counter</string>
+    <string name="send_to_1st_activity">Send to 1st activity</string>
+    <string name="to_second_activity">To second activity</string>
+</resources>
