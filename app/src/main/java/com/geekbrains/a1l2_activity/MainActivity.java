@@ -15,7 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-      private EditText editText;
+      private Spinner spinner;
       private Button toSecondActivityBtn;
       private CheckBox wind;
       private CheckBox humidity;
@@ -39,20 +39,14 @@ public class MainActivity extends AppCompatActivity {
         spinner.setSelection(2);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 city = spinner.getSelectedItem().toString();
-                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
-            }
-
+                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show(); }
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });}
+            public void onNothingSelected(AdapterView<?> adapterView) { }});}
 
             private void initViews() {
-        editText = findViewById(R.id.editText2);
+        spinner = findViewById(R.id.spinner);
         toSecondActivityBtn = findViewById(R.id.toSecondActivityBtn);
         wind = findViewById(R.id.checkBox);
         humidity = findViewById(R.id.checkBox2);

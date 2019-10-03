@@ -36,45 +36,36 @@ public class ViewWeather extends AppCompatActivity {
     private void showWeather(String city) {
         switch (city){
             case "Moscow":
-                weather.setText("Погода в Москве 15 градусов");
+                weather.setText(R.string.moscowWeather);
                 break;
             case "Berlin":
-                weather.setText("Погода в Берлине 20 градусов");
+                weather.setText(R.string.berlinWeather);
                 break;
             case "London":
-                weather.setText("Погода в Лондоне 18 градусов");
+                weather.setText(R.string.londonWeather);
                 break;
                 default:
                     weather.setText("Такого города нет в базе");
                     break;
         }
 
-
-        if (city.equals("Moscow")) {
-            weather.setText("Погода в Москве 15 градусов");
-        } else if (city.equals("Berlin")) {
-            weather.setText("Погода в Берлине 20 градусов");
-        } else if (city.equals("London")) {
-            weather.setText("Погода в Лондоне 18 градусов");
-        } else weather.setText("Такого города нет в базе");
-
     }
 
     private void showWind(boolean wind){
         if (wind) {
-            additional.setText("Скорость ветра 17 метров в секунду");
+            additional.setText(R.string.checkWind);
         }
     }
 
     private void showHumidity(boolean humidity){
         if (humidity) {
-            additional.setText("Влажность 20 процентов");
+            additional.setText(R.string.checkHumidity);
         }
     }
 
     private void showPressure(boolean pressure){
         if (pressure) {
-            additional.setText("Давление 10 процентов");
+            additional.setText(R.string.checkPressure);
         }
     }
 }
