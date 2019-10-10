@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A1L2_Activity</string>
+    <string name="increase_counter">Increase counter</string>
+    <string name="send_to_1st_activity">Send to 1st activity</string>
+    <string name="to_second_activity">To second activity</string>
+    <string name="moscowWeather">"Weather in Moscow 15 degrees"</string>
+    <string name="berlinWeather">"Weather in Berlin 20 degress"</string>
+    <string name="londonWeather">"Weather in London 18 degrees"</string>
+    <string name="checkWind">"Speed of wind is 17 meters per second"</string>
+    <string name="checkHumidity">"Humidity 20 percent"</string>
+    <string name="checkPressure">"Pressure 10 percent"</string>
+    <string name="checkWeather">Check weather</string>
+    <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+</resources>
