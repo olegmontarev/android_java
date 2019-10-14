@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
       private Spinner spinner;
       private Button toSecondActivityBtn;
@@ -37,6 +39,27 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
         spinner.setPrompt("Выберите город");
         spinner.setSelection(2);
+        wind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Просмотр скорости ветра", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        humidity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Просмотр процента влажности", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        pressure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Просмотр давления", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
