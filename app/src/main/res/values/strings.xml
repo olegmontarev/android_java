@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">A1L2_Activity</string>
-    <string name="increase_counter">Increase counter</string>
-    <string name="send_to_1st_activity">Send to 1st activity</string>
-    <string name="to_second_activity">To second activity</string>
+
     <string name="moscowWeather">"Погода в Москве 15 градусов"</string>
     <string name="berlinWeather">"Погода в Берлине 20 градусов"</string>
     <string name="londonWeather">"Погода в Лондоне 18 градусов"</string>
@@ -10,7 +8,14 @@
     <string name="checkHumidity">"Влажность 20 процентов"</string>
     <string name="checkPressure">"Давление 10 процентов"</string>
     <string name="checkWeather">Узнать погоду</string>
-    <string name="wind">Ветер</string>
-    <string name="humidity">Влажность</string>
-    <string name="pressure">Давление</string>
+    <string name="details">Детали</string>
+    <string name="place_not_found">Место не найдено</string>
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
 </resources>

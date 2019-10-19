@@ -9,7 +9,6 @@
     android:background="@drawable/background"
     >
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/toSecondActivityBtn"
         android:layout_width="wrap_content"
@@ -25,34 +24,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="@string/wind"
+        android:text="@string/details"
         app:layout_constraintEnd_toEndOf="@+id/toSecondActivityBtn"
         app:layout_constraintTop_toBottomOf="@+id/toSecondActivityBtn" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        android:text="@string/humidity"
-        app:layout_constraintEnd_toEndOf="@+id/toSecondActivityBtn"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:text="@string/pressure"
-        app:layout_constraintEnd_toEndOf="@+id/checkBox2"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
-
-    <Spinner
-        android:id="@+id/spinner"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp"/>
 
 </RelativeLayout>
 
