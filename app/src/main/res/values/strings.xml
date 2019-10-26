@@ -18,4 +18,25 @@
     <string name="weather_snowy">&#xf01b;</string>
     <string name="weather_thunder">&#xf01e;</string>
     <string name="weather_drizzle">&#xf01c;</string>
+    <string name="navigation_drawer_open">Открыть боковое меню</string>
+    <string name="navigation_drawer_close">Закрыть боковое меню</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Навигация</string>
+    <string name="action_settings">Настройки</string>
+    <string name="menu_home">Домой</string>
+    <string name="menu_gallery">Галлерея</string>
+    <string name="menu_slideshow">Слайдшоу</string>
+    <string name="menu_tools">Инструменты</string>
+    <string name="menu_share">Поделиться</string>
+    <string name="menu_send">Отправить</string>
+    <string name="add">Добавить</string>
+    <string name="edit">Изменить</string>
+    <string name="remove">Удалить</string>
+    <string name="clear">Очистить</string>
+    <string name="action_not_found">Действие не найдено</string>
+    <string name="search">Поиск</string>
+    <string name="more">Больше</string>
+    <string name="something_else">Что-нибудь еще</string>
+    <string name="settings">Настройки</string>
 </resources>
