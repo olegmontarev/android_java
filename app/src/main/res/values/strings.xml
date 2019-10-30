@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">A1L2_Activity</string>
+
+    <string name="moscowWeather">"Погода в Москве 15 градусов"</string>
+    <string name="berlinWeather">"Погода в Берлине 20 градусов"</string>
+    <string name="londonWeather">"Погода в Лондоне 18 градусов"</string>
+    <string name="checkWind">"Скорость ветра 17 метров в секунду"</string>
+    <string name="checkHumidity">"Влажность 20 процентов"</string>
+    <string name="checkPressure">"Давление 10 процентов"</string>
+    <string name="checkWeather">Узнать погоду</string>
+    <string name="details">Детали</string>
+    <string name="place_not_found">Место не найдено</string>
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+    <string name="navigation_drawer_open">Открыть боковое меню</string>
+    <string name="navigation_drawer_close">Закрыть боковое меню</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Навигация</string>
+    <string name="action_settings">Настройки</string>
+    <string name="menu_home">Домой</string>
+    <string name="menu_gallery">Галлерея</string>
+    <string name="menu_slideshow">Слайдшоу</string>
+    <string name="menu_tools">Инструменты</string>
+    <string name="menu_share">Поделиться</string>
+    <string name="menu_send">Отправить</string>
+    <string name="add">Добавить</string>
+    <string name="edit">Изменить</string>
+    <string name="remove">Удалить</string>
+    <string name="clear">Очистить</string>
+    <string name="action_not_found">Действие не найдено</string>
+    <string name="search">Поиск</string>
+    <string name="more">Больше</string>
+    <string name="something_else">Что-нибудь еще</string>
+    <string name="settings">Настройки</string>
+</resources>
