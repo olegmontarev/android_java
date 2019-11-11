@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="moscowWeather">"Weather in Moscow 15 degrees"</string>
+    <string name="berlinWeather">"Weather in Berlin 20 degress"</string>
+    <string name="londonWeather">"Weather in London 18 degrees"</string>
+    <string name="checkWind">"Speed of wind is 17 meters per second"</string>
+    <string name="checkHumidity">"Humidity 20 percent"</string>
+    <string name="checkPressure">"Pressure 10 percent"</string>
+    <string name="checkWeather">Check weather</string>
+    <string name="details">Details</string>
+    <string name="place_not_found">Place not found</string>
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+    <string name="network_error">Проблемы с сетью</string>
+</resources>
