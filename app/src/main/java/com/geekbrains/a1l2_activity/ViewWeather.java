@@ -7,17 +7,26 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.geekbrains.a1l2_activity.rest.OpenWeatherRepo;
+import com.geekbrains.a1l2_activity.rest.entities.WeatherRequestRestModel;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ViewWeather extends AppCompatActivity {
 
@@ -117,72 +126,82 @@ public class ViewWeather extends AppCompatActivity {
     };
 
     private void updateWeatherData(final String city) {
-        new Thread() {
+        /*final Handler handler = new Handler();
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                final JSONObject jsonObject = WeatherDataLoader.getJSONData(city);
-                if(jsonObject == null) {
+                try {
+                    WeatherRequestRestModel model = OpenWeatherRepo.getSingleton().getAPI().loadWeather(city + ",ru",
+                            "762ee61f52313fbd10a4eb54ae4d4de2", "metric").execute().body();
+                    //берете данные из model, отправляете в другой запрос
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), R.string.place_not_found,
-                                    Toast.LENGTH_LONG).show();
+                            //Обновляем вьюхи
                         }
                     });
-                } else {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            renderWeather(jsonObject);
-                        }
-                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-        }.start();
+        }).start();*/
+        OpenWeatherRepo.getSingleton().getAPI().loadWeather(city + ",ru",
+                "762ee61f52313fbd10a4eb54ae4d4de2", "metric")
+                .enqueue(new Callback<WeatherRequestRestModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<WeatherRequestRestModel> call,
+                                           @NonNull Response<WeatherRequestRestModel> response) {
+                        if (response.body() != null && response.isSuccessful()) {
+                            renderWeather(response.body());
+                        } else {
+                            //Похоже, код у нас не в диапазоне (200..300] и случилась ошибка
+                            //обрабатываем ее
+                            if(response.code() == 500) {
+                                //ой, случился Internal Server Error. Решаем проблему
+                            } else if(response.code() == 401) {
+                                //...
+                            }// и так далее
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<WeatherRequestRestModel> call, Throwable t) {
+                        Toast.makeText(getBaseContext(), getString(R.string.network_error),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
-    private void renderWeather(JSONObject jsonObject) {
-        Log.d(LOG_TAG, "json: " + jsonObject.toString());
-        try {
-            JSONObject details = jsonObject.getJSONArray("weather").getJSONObject(0);
-            JSONObject main = jsonObject.getJSONObject("main");
-
-            setPlaceName(jsonObject);
-            if (detail) {
-            setDetails(details, main); }
-            setCurrentTemp(main);
-            setUpdatedText(jsonObject);
-            setWeatherIcon(details.getInt("id"),
-                    jsonObject.getJSONObject("sys").getLong("sunrise") * 1000,
-                    jsonObject.getJSONObject("sys").getLong("sunset") * 1000);
-        } catch (Exception exc) {
-            exc.printStackTrace();
-            Log.e(LOG_TAG, "One or more fields not found in the JSON data");
-        }
+    private void renderWeather(WeatherRequestRestModel model) {
+        setPlaceName(model.name, model.sys.country);
+        setDetails(model.weather[0].description, model.main.humidity, model.main.pressure);
+        setCurrentTemp(model.main.temp);
+        setUpdatedText(model.dt);
+        setWeatherIcon(model.weather[0].id,
+                model.sys.sunrise * 1000,
+                model.sys.sunset * 1000);
     }
 
-    private void setPlaceName(JSONObject jsonObject) throws JSONException {
-        String cityText = jsonObject.getString("name").toUpperCase() + ", "
-                + jsonObject.getJSONObject("sys").getString("country");
+    private void setPlaceName(String name, String country) {
+        String cityText = name.toUpperCase() + ", " + country;
         cityTextView.setText(cityText);
     }
 
-    private void setDetails(JSONObject details, JSONObject main) throws JSONException {
-        String detailsText = details.getString("description").toUpperCase() + "\n"
-                + "Humidity: " + main.getString("humidity") + "%" + "\n"
-                + "Pressure: " + main.getString("pressure") + "hPa";
+    private void setDetails(String description, float humidity, float pressure)  {
+        String detailsText = description.toUpperCase() + "\n"
+                + "Humidity: " + humidity + "%" + "\n"
+                + "Pressure: " + pressure + "hPa";
         detailsTextView.setText(detailsText);
     }
 
-    private void setCurrentTemp(JSONObject main) throws JSONException {
-        String currentTextText = String.format(Locale.getDefault(), "%.2f",
-                main.getDouble("temp")) + "\u2103";
+    private void setCurrentTemp(float temp) {
+        String currentTextText = String.format(Locale.getDefault(), "%.2f", temp) + "\u2103";
         currentTemperatureTextView.setText(currentTextText);
     }
 
-    private void setUpdatedText(JSONObject jsonObject) throws JSONException {
+    private void setUpdatedText(long dt) {
         DateFormat dateFormat = DateFormat.getDateTimeInstance();
-        String updateOn = dateFormat.format(new Date(jsonObject.getLong("dt") * 1000));
+        String updateOn = dateFormat.format(new Date(dt * 1000));
         String updatedText = "Last update: " + updateOn;
         updatedTextView.setText(updatedText);
     }
@@ -223,12 +242,14 @@ public class ViewWeather extends AppCompatActivity {
                 }
                 case 8: {
                     icon = "\u2601";
+                    // icon = getString(R.string.weather_cloudy);
                     break;
                 }
             }
         }
         weatherIconTextView.setText(icon);
     }
+
 
     @Override
     public void onBackPressed(){
